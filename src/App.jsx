@@ -1,11 +1,10 @@
-import { useState } from 'react'
+import React from 'react'
+import Navigation from './components/navigation/navigation'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-
+      <Navigation />
     </>
   )
 }
