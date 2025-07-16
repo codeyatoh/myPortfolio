@@ -9,9 +9,9 @@ import {
   AiOutlineMessage,
   AiOutlinePhone
 } from 'react-icons/ai';
-import './navigation.css';
+import styles from './navigation.module.css';
 
-const navigation = () => {
+const Navigation = () => {
   const [activeSection, setActiveSection] = useState('home');
 
   const navItems = [
@@ -52,26 +52,29 @@ const navigation = () => {
   const activeItem = navItems.find(item => item.id === activeSection);
 
   return (
-    <div className="bottom-navigation-wrapper">
+    <div className={styles.bottomNavigationWrapper}>
       {/* Floating label above nav bar, always centered */}
       {activeItem && (
-        <div className="floating-nav-label">
+        <div className={styles.floatingNavLabel}>
           {activeItem.label}
         </div>
       )}
-      <nav className="bottom-navigation">
-        <div className="nav-container">
+      <nav className={styles.bottomNavigation}>
+        <div className={styles.navContainer}>
           {navItems.map((item) => {
             const IconComponent = item.icon;
             return (
               <button
                 key={item.id}
-                className={`nav-item ${activeSection === item.id ? 'active' : ''}`}
+                className={[
+                  styles.navItem,
+                  activeSection === item.id ? styles.active : '',
+                ].filter(Boolean).join(' ')}
                 onClick={() => handleNavClick(item.id)}
               >
-                <IconComponent className="nav-icon" />
+                <IconComponent className={styles.navIcon} />
                 {/* Hide label under icon */}
-                {/* <span className="nav-label">{item.label}</span> */}
+                {/* <span className={styles.navLabel}>{item.label}</span> */}
               </button>
             );
           })}
@@ -81,4 +84,4 @@ const navigation = () => {
   );
 };
 
-export default navigation;
+export default Navigation;

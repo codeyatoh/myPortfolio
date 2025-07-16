@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+.projectsContainer {
+  min-height: 100vh;
+  background-color: #FCFAF1;
+  padding: 2rem;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 3.5rem !important;
+}
+
+.projectsWrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.headerSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+  gap: 2rem;
+}
+
+.navButton {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: #D9D9D9;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #343434;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.navButton:hover {
+  background-color: #E6B31E;
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(230, 179, 30, 0.3);
+}
+
+.headerContent {
+  flex: 1;
+  text-align: center;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #343434;
+  margin-bottom: 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #343434;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+  font-weight: 400;
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.projectCard {
+  background-color: #343434;
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(52, 52, 52, 0.1);
+}
+
+.projectCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(52, 52, 52, 0.2);
+}
+
+.projectImage {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.projectImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.projectCard:hover .projectImage img {
+  transform: scale(1.05);
+}
+
+.projectContent {
+  padding: 1.5rem;
+  color: #FCFAF1;
+}
+
+.projectHeader {
+  margin-bottom: 1.5rem;
+}
+
+.projectTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #FCFAF1;
+  margin-bottom: 0.5rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.projectDescription {
+  font-size: 0.875rem;
+  color: #D9D9D9;
+  font-weight: 400;
+}
+
+.featuresSection {
+  margin-bottom: 1.5rem;
+}
+
+.featuresTitle {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #FCFAF1;
+  margin-bottom: 0.75rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.featuresList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  color: #D9D9D9;
+}
+
+.checkIcon {
+  color: #E6B31E;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+.techSection {
+  margin-bottom: 1.5rem;
+}
+
+.techTitle {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #FCFAF1;
+  margin-bottom: 0.75rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.techTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.techTag {
+  background-color: #D9D9D9;
+  color: #343434;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 1rem;
+}
+
+.demoButton,
+.codeButton {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.demoButton {
+  background-color: #FCFAF1;
+  color: #343434;
+}
+
+.demoButton:hover {
+  background-color: #E6B31E;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(230, 179, 30, 0.3);
+}
+
+.codeButton {
+  background-color: transparent;
+  color: #FCFAF1;
+  border: 2px solid #FCFAF1;
+}
+
+.codeButton:hover {
+  background-color: #FCFAF1;
+  color: #343434;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(252, 250, 241, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .projectsContainer {
+    padding: 1rem;
+  }
+  
+  .headerSection {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .navButton {
+    display: none;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .subtitle {
+    font-size: 0.875rem;
+  }
+  
+  .projectsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .actionButtons {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .projectContent {
+    padding: 1rem;
+  }
+  
+  .projectImage {
+    height: 150px;
+  }
+  
+  .techTags {
+    gap: 0.25rem;
+  }
+  
+  .techTag {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+  }
+}

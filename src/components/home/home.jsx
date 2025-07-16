@@ -11,8 +11,9 @@ import {
   FaDatabase,
   FaReact
 } from 'react-icons/fa';
-import './Home.css';
+import styles from './home.module.css';
 import profileImg from '../../assets/images/yatoh.dev.jpg';
+import { motion } from 'framer-motion';
 
 // Typewriter component for subtitle
 const Typewriter = () => {
@@ -42,76 +43,82 @@ const Typewriter = () => {
   }, [index, deleting, text]);
 
   return (
-    <p className="subtitle animate-slideInLeft delay-200">
+    <p className={[styles.subtitle, 'animateSlideInLeft', 'delay200'].join(' ')}>
       {displayed}
-      <span className="typewriter-cursor">|</span>
+      <span className={styles.typewriterCursor}>|</span>
     </p>
   );
 };
 
 function Home() {
   return (
-    <div className="portfolio-container">
-      <div className="portfolio-wrapper">
-        <div className="header-section">
+    <motion.section
+      id="home"
+      initial={{ opacity: 0, x: -80 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
+      className={styles.portfolioContainer}
+    >
+      <div className={styles.portfolioWrapper}>
+        <div className={styles.headerSection}>
           {/* Left Side - Profile Info */}
-          <div className="profile-info">
-            <h1 className="main-title animate-slideInLeft">
+          <div className={styles.profileInfo}>
+            <h1 className={styles.mainTitle}>
               Hi, I'm Angelito <br />
               Halmain 👋
             </h1>
             <Typewriter />
             
-            <div className="description animate-slideInLeft delay-300">
+            <div className={styles.description}>
               <p>A beginner web developer learning HTML, CSS, and JavaScript.</p>
               <p>Passionate about building user-friendly</p>
               <p>websites and exploring both frontend and backend development.</p>
             </div>
 
             {/* Social Links */}
-            <div className="social-links animate-slideInLeft delay-400">
-              <div className="social-icon">
+            <div className={styles.socialLinks}>
+              <div className={styles.socialIcon}>
                 <FaGithub />
               </div>
-              <div className="social-icon">
+              <div className={styles.socialIcon}>
                 <FaLinkedin />
               </div>
-              <div className="social-icon">
+              <div className={styles.socialIcon}>
                 <FaInstagram />
               </div>
-              <div className="social-icon">
+              <div className={styles.socialIcon}>
                 <FaTwitter />
               </div>
             </div>
 
             {/* Action Buttons */}
-            <div className="action-buttons animate-slideInLeft delay-500">
-              <button className="btn-primary">
+            <div className={styles.actionButtons}>
+              <button className={styles.btnPrimary}>
                 Explore My Projects
               </button>
-              <button className="btn-secondary">
+              <button className={styles.btnSecondary}>
                 <FaDownload />
                 <span>Download My CV</span>
               </button>
             </div>
 
             {/* Quick Stats */}
-            <div className="quick-stats animate-slideInLeft delay-600">
-              <p className="stats-label">Quick Stats:</p>
-              <div className="stats-tags">
-                <div className="stat-tag animate-fadeInUp delay-700">Learning Web Dev</div>
-                <div className="stat-tag animate-fadeInUp delay-800">IT Student</div>
-                <div className="stat-tag animate-fadeInUp delay-900">5+ Mini Projects</div>
-                <div className="stat-tag animate-fadeInUp delay-1000">HTML, CSS, JS Basics</div>
+            <div className={styles.quickStats}>
+              <p className={styles.statsLabel}>Quick Stats:</p>
+              <div className={styles.statsTags}>
+                <div className={styles.statTag}>Learning Web Dev</div>
+                <div className={styles.statTag}>IT Student</div>
+                <div className={styles.statTag}>5+ Mini Projects</div>
+                <div className={styles.statTag}>HTML, CSS, JS Basics</div>
               </div>
             </div>
           </div>
 
           {/* Right Side - Profile Image with Floating Elements */}
-          <div className="profile-image-section animate-slideInRight">
-
+          <div className={styles.profileImageSection}>
             {/* Profile Image */}
-            <div className="profile-image animate-scaleIn delay-300">
+            <div className={styles.profileImage}>
               <img 
                 src={profileImg} 
                 alt="Angelito Halmain" 
@@ -119,25 +126,22 @@ function Home() {
             </div>
 
             {/* Floating Tech Icons - 4 lang */}
-            <div className="floating-icon floating-javascript animate-float delay-400">
+            <div className={[styles.floatingIcon, styles.floatingJavascript].join(' ')}>
               <FaJs />
             </div>
-
-            <div className="floating-icon floating-html animate-float delay-500">
+            <div className={[styles.floatingIcon, styles.floatingHtml].join(' ')}>
               <FaHtml5 />
             </div>
-
-            <div className="floating-icon floating-postgresql animate-float delay-600">
+            <div className={[styles.floatingIcon, styles.floatingPostgresql].join(' ')}>
               <FaDatabase />
             </div>
-
-            <div className="floating-icon floating-react animate-float delay-700">
+            <div className={[styles.floatingIcon, styles.floatingReact].join(' ')}>
               <FaReact />
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </motion.section>
   );
 }
 

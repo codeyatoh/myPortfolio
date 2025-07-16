@@ -1,0 +1,351 @@
+/* About.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --dark: #343434;
+  --yellow: #E6B31E;
+  --bg: #FCFAF1;
+  --gray: #D9D9D9;
+}
+
+.container {
+  background-color: var(--bg);
+  min-height: 100vh;
+  padding: 0 1rem 4rem 1rem;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 0 !important;
+  margin-bottom: 3.5rem !important;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header Styles */
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+  margin-top: 0 !important;
+}
+
+.title {
+  color: var(--dark);
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  margin-top: 0 !important;
+  font-weight: 800;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.subtitle {
+  color: var(--dark);
+  font-size: 1.1rem;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  opacity: 0.85;
+}
+
+.container > *:first-child {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Main Content */
+.mainContent {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+/* Profile Section */
+.profileSection {
+  flex: 0 0 450px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 10rem;
+}
+
+.profileImage {
+  width: 350px;
+  height: 400px;
+  background-color: var(--dark);
+  border-radius: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bg);
+  font-size: 1.2rem;
+  position: relative;
+  box-shadow: 0 8px 32px rgba(52, 52, 52, 0.13);
+  border: 2.5px solid var(--gray);
+  overflow: hidden;
+  transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+.profileImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.profileImage:hover {
+  box-shadow: 0 16px 40px rgba(230, 179, 30, 0.18);
+  border-color: var(--yellow);
+}
+
+.profilePlaceholder {
+  text-align: center;
+}
+
+.profileIcon {
+  margin-bottom: 20px;
+  font-size: 4.2rem;
+  color: var(--yellow);
+}
+
+/* Content Grid */
+.contentGrid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem 2rem;
+}
+
+/* Card Styles */
+.card {
+  background-color: #fff;
+  padding: 2rem 1.5rem;
+  border-radius: 1.1rem;
+  box-shadow: 0 4px 16px rgba(52, 52, 52, 0.08);
+  border: 1px solid var(--gray);
+  position: relative;
+  transition: box-shadow 0.3s, border-color 0.3s, transform 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0 8px 24px rgba(230, 179, 30, 0.13);
+  border-color: var(--yellow);
+  transform: translateY(-2px) scale(1.01);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.cardIcon {
+  color: #343434;
+  margin-right: 10px;
+  font-size: 1.5rem;
+}
+
+.cardTitle {
+  color: var(--dark);
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.cardText {
+  color: var(--dark);
+  margin: 0;
+  line-height: 1.6;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+/* Personal Info Header */
+.personalInfoHeader {
+  grid-column: 1 / -1;
+  margin-top: 1.2rem;
+}
+
+.personalInfoTitle {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+
+.personalInfoIcon {
+  color: #343434;
+  margin-right: 10px;
+  font-size: 1.4rem;
+}
+
+.personalInfoHeading {
+  color: var(--dark);
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+/* Personal Info Grid */
+.personalInfoGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 0.9rem;
+  box-shadow: 0 2px 8px rgba(52, 52, 52, 0.06);
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--gray);
+  transition: box-shadow 0.3s, border-color 0.3s, background 0.3s;
+}
+
+.infoItem:hover {
+  border-color: var(--yellow);
+  box-shadow: 0 8px 20px rgba(230, 179, 30, 0.13);
+  background: var(--bg);
+}
+
+.infoIcon {
+  background-color: var(--dark);
+  padding: 10px;
+  border-radius: 50%;
+  margin-right: 15px;
+  color: #D9D9D9;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(52, 52, 52, 0.10);
+}
+
+.infoContent {
+  flex: 1;
+}
+
+.infoLabel {
+  color: var(--dark);
+  margin: 0;
+  font-size: 0.97rem;
+  opacity: 0.8;
+  font-weight: 600;
+}
+
+.infoValue {
+  color: var(--dark);
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+/* Button Styles */
+.buttonContainer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2.5rem;
+}
+
+.downloadButton {
+  background-color: #E6B31E;
+  color: #343434;
+  border: none;
+  padding: 0.85rem 1.7rem;
+  border-radius: 0.7rem;
+  font-size: 1.13rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(230, 179, 30, 0.10);
+}
+
+.downloadButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.downloadButton:hover::before {
+  left: 100%;
+}
+
+.downloadButton:hover {
+  background-color: rgba(230, 179, 30, 0.9);
+  color: #343434;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(230, 179, 30, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 1100px) {
+  .mainContent {
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+  }
+  .profileSection {
+    justify-content: center;
+    margin-bottom: 2rem;
+    margin-top: 0;
+  }
+  .contentGrid {
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .contentGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .buttonContainer {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .profileImage {
+    width: 100%;
+    max-width: 350px;
+    height: 250px;
+  }
+  .contentGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .title {
+    font-size: 1.5rem;
+  }
+}
+
+/* Fade in, up, and scale animation for Home & About */
+@keyframes fadeInUpScale {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(-4px) scale(1.01);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.fadeInUpScale {
+  opacity: 0;
+  animation: fadeInUpScale 0.9s cubic-bezier(0.4,0,0.2,1) forwards;
+}

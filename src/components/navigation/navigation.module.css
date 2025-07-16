@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
-.bottom-navigation-wrapper {
+.bottomNavigationWrapper {
   position: fixed;
   left: 50%;
   bottom: 20px;
@@ -9,7 +9,7 @@
   font-family: 'Poppins', sans-serif;
 }
 
-.bottom-navigation {
+.bottomNavigation {
   position: static;
   background: #FCFAF1;
   backdrop-filter: blur(10px);
@@ -20,13 +20,13 @@
   font-family: 'Poppins', sans-serif;
 }
 
-.nav-container {
+.navContainer {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-.nav-item {
+.navItem {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -41,32 +41,32 @@
   min-width: 60px;
 }
 
-.nav-item:hover {
+.navItem:hover {
   background: #D9D9D9;
   color: #343434;
 }
 
-.nav-item.active {
+.navItem.active {
   background: #343434;
   color: #E6B31E;
 }
 
-.nav-item.active .nav-icon {
+.navItem.active .navIcon {
   color: #E6B31E;
 }
 
-.nav-icon {
+.navIcon {
   font-size: 18px;
   margin-bottom: 4px;
   transition: all 0.3s ease;
   color: #343434;
 }
 
-.nav-item:hover .nav-icon {
+.navItem:hover .navIcon {
   transform: scale(1.1);
 }
 
-.nav-label {
+.navLabel {
   font-size: 10px;
   font-weight: 600;
   text-transform: uppercase;
@@ -75,13 +75,13 @@
   color: #343434;
 }
 
-.nav-item.active .nav-label {
+.navItem.active .navLabel {
   color: #E6B31E;
 }
 
 /* Responsive design */
 @media (max-width: 768px) {
-  .bottom-navigation {
+  .bottomNavigation {
     bottom: 10px;
     left: 10px;
     right: 10px;
@@ -91,51 +91,51 @@
     box-shadow: 0 4px 16px rgba(52, 52, 52, 0.08);
   }
   
-  .nav-container {
+  .navContainer {
     justify-content: space-around;
   }
   
-  .nav-item {
+  .navItem {
     min-width: auto;
     padding: 6px 8px;
     color: #343434;
   }
   
-  .nav-item.active {
+  .navItem.active {
     background: #343434;
     color: #E6B31E;
   }
   
-  .nav-item.active .nav-label {
+  .navItem.active .navLabel {
     color: #E6B31E;
   }
   
-  .nav-icon {
+  .navIcon {
     font-size: 16px;
   }
   
-  .nav-label {
+  .navLabel {
     font-size: 8px;
     color: #343434;
   }
 }
 
 @media (max-width: 480px) {
-  .nav-label {
+  .navLabel {
     display: none;
   }
   
-  .nav-item {
+  .navItem {
     padding: 8px;
   }
   
-  .nav-icon {
+  .navIcon {
     margin-bottom: 0;
     font-size: 18px;
   }
 }
 
-.floating-nav-label {
+.floatingNavLabel {
   position: absolute;
   top: -48px;
   left: 50%;
@@ -159,6 +159,6 @@
   justify-content: center;
 }
 
-.nav-label {
+.navLabel {
   display: none !important;
 }
