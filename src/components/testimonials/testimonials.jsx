@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FaChevronLeft, FaChevronRight, FaQuoteLeft } from 'react-icons/fa';
-import styles from './Testimonials.module.css';
+import styles from './testimonials.module.css';
 import { motion } from 'framer-motion';
 import JChristianSapornoImg from '../../assets/images/JChristian.Saporno.jpg';
 import JHaroldRuedaImg from '../../assets/images/JHarold.Rueda.jpg';
