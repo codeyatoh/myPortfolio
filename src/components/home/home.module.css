@@ -9,7 +9,7 @@
 .portfolioContainer {
   min-height: 120vh;
   background-color: #FCFAF1;
-  padding: 6rem 0 2.5rem 0;
+  padding: 12rem 0 2.5rem 0;
   font-family: 'Poppins', sans-serif;
   padding-bottom: 0 !important;
   margin-bottom: 3.5rem !important;
@@ -71,11 +71,12 @@
   width: 2.5rem;
   height: 2.5rem;
   background-color: #343434;
+  border: 2px solid #D9D9D9;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #FCFAF1;
+  color: #D9D9D9;
   font-size: 1.125rem;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -83,9 +84,11 @@
 }
 
 .socialIcon:hover {
-  background-color: #E6B31E;
-  transform: scale(1.1);
-  box-shadow: 0 5px 15px rgba(230, 179, 30, 0.3);
+  border-color: #E6B31E;
+  color: #E6B31E;
+  background-color: #343434;
+  transform: translateY(-3px);
+  box-shadow: none;
 }
 
 .actionButtons {
@@ -444,8 +447,8 @@
   display: inline-block;
   margin-left: 2px;
   color: #343434;
-  font-weight: 700;
-  font-size: 1.125rem;
+  font-weight: 400;
+  font-size: 2rem;
   animation: blink 1s steps(1) infinite;
 }
 

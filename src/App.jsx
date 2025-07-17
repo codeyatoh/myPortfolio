@@ -4,6 +4,9 @@ import Home from './components/home/home'
 import About from './components/about/about'
 import Projects from './components/projects/projects'
 import Experience from './components/experience/experience'
+import Skills from './components/skills/skills'
+import Testimonials from './components/testimonials/testimonials'
+import Contact from './components/contacts/contact'
 
 function App() {
   return (
@@ -19,6 +22,15 @@ function App() {
       </section>
       <section id="experience">
         <Experience/>
+      </section>
+      <section id="skills">
+        <Skills/>
+      </section>
+      <section id="testimonials">
+        <Testimonials/>
+      </section>
+      <section id="contacts">
+        <Contact/>
       </section>
       <Navigation />
     </>

@@ -3,6 +3,7 @@ import { FaUser, FaEye, FaCalendarAlt, FaMapMarkerAlt, FaEnvelope, FaGraduationC
 import styles from './about.module.css';
 import profileImg from '../../assets/images/yatoh.dev-1.jpg';
 import { motion } from 'framer-motion';
+import toast from 'react-hot-toast';
 
 function About() {
   return (
@@ -147,12 +148,34 @@ function About() {
               </div>
             </div>
 
-            {/* Download Resume Button - now outside the info grid, aligned left */}
-            <div style={{ gridColumn: '1 / 2', marginTop: '1.5rem' }}>
-              <button className={styles.downloadButton}>
+            {/* Download Resume Button - now outside the info grid, aligned left but centered on mobile */}
+            <div className={styles.downloadButtonContainer} style={{ gridColumn: '1 / 2' }}>
+              <a
+                href="/Angelito-Halmain-Resume.pdf"
+                download
+                className={styles.downloadButton}
+                onClick={e => {
+                  toast.success('Resume downloaded successfully!', {
+                    style: {
+                      background: '#343434',
+                      color: '#E6B31E',
+                      fontFamily: 'Poppins, sans-serif',
+                      fontWeight: 600,
+                      fontSize: '1.1rem',
+                      border: '2px solid #E6B31E',
+                      borderRadius: '1rem',
+                      boxShadow: '0 4px 16px rgba(230, 179, 30, 0.10)',
+                    },
+                    iconTheme: {
+                      primary: '#22c55e',
+                      secondary: '#343434',
+                    },
+                  });
+                }}
+              >
                 <FaDownload />
                 Download My Resume
-              </button>
+              </a>
             </div>
           </div>
         </div>

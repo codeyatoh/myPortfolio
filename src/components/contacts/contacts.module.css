@@ -1,0 +1,198 @@
+.contactContainer {
+    background-color: #343434;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem 1.5rem;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .content {
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .header {
+    margin-bottom: 2.2rem;
+  }
+  
+  .subtitle {
+    color: #D9D9D9;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .title {
+    color: #FCFAF1;
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.2;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .contactInfo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.2rem;
+    margin-bottom: 2.2rem;
+    flex-wrap: wrap;
+  }
+  
+  .contactItem {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #FCFAF1;
+    font-size: 1.1rem;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .icon {
+    font-size: 1.25rem;
+    color: #D9D9D9;
+  }
+  
+  .phoneInfo {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+  
+  .phoneInfo small {
+    color: #D9D9D9;
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+  }
+  
+  .quoteButton {
+    background-color: transparent;
+    border: 2px solid #E6B31E;
+    color: #E6B31E;
+    padding: 0.75rem 2rem;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+  }
+  
+  .quoteButton:hover {
+    background-color: #E6B31E;
+    color: #343434;
+    transform: translateY(-2px);
+  }
+  
+  /* Remove underline for anchor with quoteButton class */
+  .quoteButton[href] {
+    text-decoration: none;
+  }
+  
+  .divider {
+    height: 1px;
+    background-color: #D9D9D9;
+    margin: 2.2rem 0;
+    opacity: 0.3;
+  }
+  
+  .socialLinks {
+    display: flex;
+    justify-content: center;
+    gap: 1.1rem;
+    flex-wrap: wrap;
+  }
+  
+  .socialLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #D9D9D9;
+    border-radius: 50%;
+    color: #D9D9D9;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+  }
+  
+  .socialLink:hover {
+    border-color: #E6B31E;
+    color: #E6B31E;
+    transform: translateY(-3px);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .contactContainer {
+      padding: 2rem 1rem;
+    }
+    
+    .title {
+      font-size: 3rem;
+    }
+    
+    .contactInfo {
+      flex-direction: column;
+      gap: 2rem;
+    }
+    
+    .contactItem {
+      justify-content: center;
+    }
+    
+    .phoneInfo {
+      text-align: center;
+    }
+    
+    .socialLinks {
+      gap: 0.75rem;
+    }
+    
+    .socialLink {
+      width: 45px;
+      height: 45px;
+      font-size: 1.1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .title {
+      font-size: 2.5rem;
+    }
+    
+    .contactInfo {
+      gap: 1.5rem;
+    }
+    
+    .contactItem {
+      font-size: 1rem;
+    }
+    
+    .quoteButton {
+      padding: 0.6rem 1.5rem;
+      font-size: 1rem;
+    }
+    
+    .socialLinks {
+      gap: 0.5rem;
+    }
+    
+    .socialLink {
+      width: 40px;
+      height: 40px;
+      font-size: 1rem;
+    }
+  }
+  
+  .contactItem a {
+    color: inherit;
+    text-decoration: none;
+  }

@@ -263,6 +263,7 @@
   position: relative;
   overflow: hidden;
   box-shadow: 0 4px 16px rgba(230, 179, 30, 0.10);
+  text-decoration: none;
 }
 
 .downloadButton::before {
@@ -285,6 +286,18 @@
   color: #343434;
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(230, 179, 30, 0.3);
+}
+
+.downloadButtonContainer {
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .downloadButtonContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
 }
 
 /* Responsive Design */
@@ -348,4 +361,9 @@
 .fadeInUpScale {
   opacity: 0;
   animation: fadeInUpScale 0.9s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+
+/* Remove underline for anchor with downloadButton class */
+.downloadButton[href] {
+  text-decoration: none;
 }

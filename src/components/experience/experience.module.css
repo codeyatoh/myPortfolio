@@ -90,6 +90,7 @@
   max-width: 370px;
   min-height: 520px;
   margin: 0 auto;
+  width: 100%;
 }
 
 .experienceCard:hover {
@@ -215,26 +216,19 @@
   font-family: 'Poppins', sans-serif;
 }
 
+.mobileArrows {
+  display: none;
+}
 @media (max-width: 768px) {
-  .experienceSection {
-    padding: 1rem;
+  .mobileArrows {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
   }
   .headerSection {
     flex-direction: column;
     gap: 1rem;
-  }
-  .navButton {
-    display: none;
-  }
-  .title {
-    font-size: 2rem;
-  }
-  .subtitle {
-    font-size: 0.9rem;
-  }
-  .experienceGrid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
   }
 }
 
@@ -251,5 +245,9 @@
   .techTag {
     font-size: 0.7rem;
     padding: 0.2rem 0.5rem;
+  }
+  .experienceCard {
+    max-width: 98vw;
+    min-width: 0;
   }
 }

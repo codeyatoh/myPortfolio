@@ -14,6 +14,7 @@ import {
 import styles from './home.module.css';
 import profileImg from '../../assets/images/yatoh.dev.jpg';
 import { motion } from 'framer-motion';
+import toast, { Toaster } from 'react-hot-toast';
 
 // Typewriter component for subtitle
 const Typewriter = () => {
@@ -28,12 +29,12 @@ const Typewriter = () => {
       timeout = setTimeout(() => {
         setDisplayed(text.slice(0, index + 1));
         setIndex(index + 1);
-      }, 120);
+      }, 180);
     } else if (deleting && index > 0) {
       timeout = setTimeout(() => {
         setDisplayed(text.slice(0, index - 1));
         setIndex(index - 1);
-      }, 60);
+      }, 100);
     } else if (!deleting && index === text.length) {
       timeout = setTimeout(() => setDeleting(true), 1200);
     } else if (deleting && index === 0) {
@@ -60,6 +61,25 @@ function Home() {
       transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
       className={styles.portfolioContainer}
     >
+      <Toaster
+        position="bottom-right"
+        toastOptions={{
+          style: {
+            background: '#343434',
+            color: '#E6B31E',
+            fontFamily: 'Poppins, sans-serif',
+            fontWeight: 600,
+            fontSize: '1.1rem',
+            border: '2px solid #E6B31E',
+            borderRadius: '1rem',
+            boxShadow: '0 4px 16px rgba(230, 179, 30, 0.10)',
+          },
+          iconTheme: {
+            primary: '#E6B31E',
+            secondary: '#343434',
+          },
+        }}
+      />
       <div className={styles.portfolioWrapper}>
         <div className={styles.headerSection}>
           {/* Left Side - Profile Info */}
@@ -78,26 +98,39 @@ function Home() {
 
             {/* Social Links */}
             <div className={styles.socialLinks}>
-              <div className={styles.socialIcon}>
+              <a href="https://github.com/codeyatoh" className={styles.socialIcon} aria-label="Github" target="_blank" rel="noopener noreferrer">
                 <FaGithub />
-              </div>
-              <div className={styles.socialIcon}>
+              </a>
+              <a href="https://www.linkedin.com/in/bossyatoh/" className={styles.socialIcon} aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
                 <FaLinkedin />
-              </div>
-              <div className={styles.socialIcon}>
+              </a>
+              <a href="https://www.instagram.com/hlmnyatoh_/" className={styles.socialIcon} aria-label="Instagram" target="_blank" rel="noopener noreferrer">
                 <FaInstagram />
-              </div>
-              <div className={styles.socialIcon}>
+              </a>
+              <a href="https://x.com/bossyatoh" className={styles.socialIcon} aria-label="Twitter" target="_blank" rel="noopener noreferrer">
                 <FaTwitter />
-              </div>
+              </a>
             </div>
 
             {/* Action Buttons */}
             <div className={styles.actionButtons}>
-              <button className={styles.btnPrimary}>
+              <button
+                className={styles.btnPrimary}
+                onClick={() => {
+                  const el = document.getElementById('projects');
+                  if (el) {
+                    el.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                type="button"
+              >
                 Explore My Projects
               </button>
-              <button className={styles.btnSecondary}>
+              <button
+                className={styles.btnSecondary}
+                onClick={() => toast('Upcoming Features')}
+                type="button"
+              >
                 <FaDownload />
                 <span>Download My CV</span>
               </button>

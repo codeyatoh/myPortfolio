@@ -12,6 +12,16 @@ import studentManagementImg from '../../assets/images/studentManagement.png';
 import orderingManagementImg from '../../assets/images/OrderingManagement.png';
 import executiveDashboardImg from '../../assets/images/ExecutiveDashboard.png';
 
+function useIsMobile(breakpoint = 768) {
+  const [isMobile, setIsMobile] = React.useState(window.innerWidth <= breakpoint);
+  React.useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= breakpoint);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [breakpoint]);
+  return isMobile;
+}
+
 function Projects() {
   const projects = [
     {
@@ -60,6 +70,21 @@ function Projects() {
     }
   ];
 
+  const isMobile = useIsMobile();
+  const [currentIndex, setCurrentIndex] = React.useState(0);
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev === 0 ? projects.length - 1 : prev - 1));
+  };
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
+  };
+
+  React.useEffect(() => {
+    // Reset index if projects length changes
+    if (currentIndex >= projects.length) setCurrentIndex(0);
+  }, [projects.length, currentIndex]);
+
   return (
     <motion.div
       className={styles.projectsContainer}
@@ -71,47 +96,65 @@ function Projects() {
       <div className={styles.projectsWrapper}>
         {/* Header */}
         <div className={styles.headerSection}>
-          <button className={styles.navButton}>
-            <FaChevronLeft />
-          </button>
-          
-          <div className={styles.headerContent}>
-            <h1 className={styles.title}>Projects</h1>
-            <p className={styles.subtitle}>
-              Explore some of the works I've built — from slick frontend UIs, powerful backend APIs, to 
-              fullstack apps connected with real-time databases.
-            </p>
-          </div>
-          
-          <button className={styles.navButton}>
-            <FaChevronRight />
-          </button>
+          {isMobile ? (
+            <>
+              <div className={styles.headerContent}>
+                <h1 className={styles.title}>Projects</h1>
+                <p className={styles.subtitle}>
+                  Explore some of the works I've built — from slick frontend UIs, powerful backend APIs, to 
+                  fullstack apps connected with real-time databases.
+                </p>
+              </div>
+              <div className={styles.mobileArrows}>
+                <button className={styles.navButton} onClick={handlePrev} aria-label="Previous project">
+                  <FaChevronLeft />
+                </button>
+                <button className={styles.navButton} onClick={handleNext} aria-label="Next project">
+                  <FaChevronRight />
+                </button>
+              </div>
+            </>
+          ) : (
+            <>
+              <button className={styles.navButton} onClick={handlePrev} aria-label="Previous project">
+                <FaChevronLeft />
+              </button>
+              <div className={styles.headerContent}>
+                <h1 className={styles.title}>Projects</h1>
+                <p className={styles.subtitle}>
+                  Explore some of the works I've built — from slick frontend UIs, powerful backend APIs, to 
+                  fullstack apps connected with real-time databases.
+                </p>
+              </div>
+              <button className={styles.navButton} onClick={handleNext} aria-label="Next project">
+                <FaChevronRight />
+              </button>
+            </>
+          )}
         </div>
 
-        {/* Projects Grid */}
+        {/* Projects Grid / Carousel */}
         <div className={styles.projectsGrid}>
-          {projects.map((project) => (
-            <div key={project.id} className={styles.projectCard}>
+          {isMobile ? (
+            <div className={styles.projectCard}>
               {/* Project Image */}
               <div className={styles.projectImage}>
-                <img src={project.image} alt={project.title} />
+                <img src={projects[currentIndex].image} alt={projects[currentIndex].title} />
               </div>
-
               {/* Project Content */}
               <div className={styles.projectContent}>
                 <div className={styles.projectHeader}>
                   <h3 className={styles.projectTitle}>
                     <FaCode style={{ marginRight: '0.5rem', verticalAlign: 'middle' }} />
-                    {project.title}
+                    {projects[currentIndex].title}
                   </h3>
-                  <p className={styles.projectDescription}>{project.description}</p>
+                  <p className={styles.projectDescription}>{projects[currentIndex].description}</p>
                 </div>
-
                 {/* Features */}
                 <div className={styles.featuresSection}>
                   <h4 className={styles.featuresTitle}>Features:</h4>
                   <ul className={styles.featuresList}>
-                    {project.features.map((feature, index) => (
+                    {projects[currentIndex].features.map((feature, index) => (
                       <li key={index} className={styles.featureItem}>
                         <FaCheck className={styles.checkIcon} />
                         <span>{feature}</span>
@@ -119,19 +162,17 @@ function Projects() {
                     ))}
                   </ul>
                 </div>
-
                 {/* Tech Stack */}
                 <div className={styles.techSection}>
                   <h4 className={styles.techTitle}>Tech Stack:</h4>
                   <div className={styles.techTags}>
-                    {project.techStack.map((tech, index) => (
+                    {projects[currentIndex].techStack.map((tech, index) => (
                       <span key={index} className={styles.techTag}>
                         {tech}
                       </span>
                     ))}
                   </div>
                 </div>
-
                 {/* Action Buttons */}
                 <div className={styles.actionButtons}>
                   <button className={styles.demoButton}>
@@ -145,7 +186,60 @@ function Projects() {
                 </div>
               </div>
             </div>
-          ))}
+          ) : (
+            projects.map((project) => (
+              <div key={project.id} className={styles.projectCard}>
+                {/* Project Image */}
+                <div className={styles.projectImage}>
+                  <img src={project.image} alt={project.title} />
+                </div>
+                {/* Project Content */}
+                <div className={styles.projectContent}>
+                  <div className={styles.projectHeader}>
+                    <h3 className={styles.projectTitle}>
+                      <FaCode style={{ marginRight: '0.5rem', verticalAlign: 'middle' }} />
+                      {project.title}
+                    </h3>
+                    <p className={styles.projectDescription}>{project.description}</p>
+                  </div>
+                  {/* Features */}
+                  <div className={styles.featuresSection}>
+                    <h4 className={styles.featuresTitle}>Features:</h4>
+                    <ul className={styles.featuresList}>
+                      {project.features.map((feature, index) => (
+                        <li key={index} className={styles.featureItem}>
+                          <FaCheck className={styles.checkIcon} />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  {/* Tech Stack */}
+                  <div className={styles.techSection}>
+                    <h4 className={styles.techTitle}>Tech Stack:</h4>
+                    <div className={styles.techTags}>
+                      {project.techStack.map((tech, index) => (
+                        <span key={index} className={styles.techTag}>
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  {/* Action Buttons */}
+                  <div className={styles.actionButtons}>
+                    <button className={styles.demoButton}>
+                      <span>Demo</span>
+                      <FaExternalLinkAlt />
+                    </button>
+                    <button className={styles.codeButton}>
+                      <span>Code</span>
+                      <FaCode />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))
+          )}
         </div>
       </div>
     </motion.div>

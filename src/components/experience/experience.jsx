@@ -6,6 +6,16 @@ import calarianBarangayHallImg from '../../assets/images/CalarianBarangayHall.jp
 import zppsuImg from '../../assets/images/ZPPSU.jpg';
 import axztechITSolutionImg from '../../assets/images/AxztechITSolution.png';
 
+function useIsMobile(breakpoint = 768) {
+  const [isMobile, setIsMobile] = React.useState(window.innerWidth <= breakpoint);
+  React.useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= breakpoint);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [breakpoint]);
+  return isMobile;
+}
+
 const experiences = [
   {
     id: 1,
@@ -49,6 +59,20 @@ const experiences = [
 ];
 
 function Experience() {
+  const isMobile = useIsMobile();
+  const [currentIndex, setCurrentIndex] = React.useState(0);
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev === 0 ? experiences.length - 1 : prev - 1));
+  };
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev === experiences.length - 1 ? 0 : prev + 1));
+  };
+
+  React.useEffect(() => {
+    if (currentIndex >= experiences.length) setCurrentIndex(0);
+  }, [experiences.length, currentIndex]);
+
   return (
     <motion.section
       className={styles.experienceSection}
@@ -60,38 +84,59 @@ function Experience() {
     >
       <div className={styles.experienceWrapper}>
         <div className={styles.headerSection}>
-          <button className={styles.navButton}>
-            <FaChevronLeft />
-          </button>
-          <div className={styles.headerContent}>
-            <h1 className={styles.title}>Experience</h1>
-            <p className={styles.subtitle}>
-              A glimpse of where I've been — from work experience to organizational life that shaped who I am.
-            </p>
-          </div>
-          <button className={styles.navButton}>
-            <FaChevronRight />
-          </button>
+          {isMobile ? (
+            <>
+              <div className={styles.headerContent}>
+                <h1 className={styles.title}>Experience</h1>
+                <p className={styles.subtitle}>
+                  A glimpse of where I've been — from work experience to organizational life that shaped who I am.
+                </p>
+              </div>
+              <div className={styles.mobileArrows}>
+                <button className={styles.navButton} onClick={handlePrev} aria-label="Previous experience">
+                  <FaChevronLeft />
+                </button>
+                <button className={styles.navButton} onClick={handleNext} aria-label="Next experience">
+                  <FaChevronRight />
+                </button>
+              </div>
+            </>
+          ) : (
+            <>
+              <button className={styles.navButton} onClick={handlePrev} aria-label="Previous experience">
+                <FaChevronLeft />
+              </button>
+              <div className={styles.headerContent}>
+                <h1 className={styles.title}>Experience</h1>
+                <p className={styles.subtitle}>
+                  A glimpse of where I've been — from work experience to organizational life that shaped who I am.
+                </p>
+              </div>
+              <button className={styles.navButton} onClick={handleNext} aria-label="Next experience">
+                <FaChevronRight />
+              </button>
+            </>
+          )}
         </div>
         <div className={styles.experienceGrid}>
-          {experiences.map((exp) => (
-            <div key={exp.id} className={styles.experienceCard}>
+          {isMobile ? (
+            <div className={styles.experienceCard}>
               <div className={styles.experienceImage}>
-                <img src={exp.image} alt={exp.title} />
+                <img src={experiences[currentIndex].image} alt={experiences[currentIndex].title} />
               </div>
               <div className={styles.experienceContent}>
                 <div className={styles.experienceHeader}>
                   <h3 className={styles.experienceTitle}>
                     <FaCode style={{ marginRight: '0.5rem', verticalAlign: 'middle' }} />
-                    {exp.title}
+                    {experiences[currentIndex].title}
                   </h3>
-                  <p className={styles.experienceSubtitle}>{exp.subtitle}</p>
-                  <p className={styles.experienceYear}>{exp.year}</p>
+                  <p className={styles.experienceSubtitle}>{experiences[currentIndex].subtitle}</p>
+                  <p className={styles.experienceYear}>{experiences[currentIndex].year}</p>
                 </div>
                 <div className={styles.responsibilitiesSection}>
                   <h4 className={styles.responsibilitiesTitle}>Responsibilities:</h4>
                   <ul className={styles.responsibilitiesList}>
-                    {exp.responsibilities.map((item, idx) => (
+                    {experiences[currentIndex].responsibilities.map((item, idx) => (
                       <li key={idx} className={styles.responsibilityItem}>
                         <FaCheck className={styles.checkIcon} />
                         <span>{item}</span>
@@ -102,14 +147,51 @@ function Experience() {
                 <div className={styles.techSection}>
                   <h4 className={styles.techTitle}>Tech Stack:</h4>
                   <div className={styles.techTags}>
-                    {exp.techStack.map((tech, idx) => (
+                    {experiences[currentIndex].techStack.map((tech, idx) => (
                       <span key={idx} className={styles.techTag}>{tech}</span>
                     ))}
                   </div>
                 </div>
               </div>
             </div>
-          ))}
+          ) : (
+            experiences.map((exp) => (
+              <div key={exp.id} className={styles.experienceCard}>
+                <div className={styles.experienceImage}>
+                  <img src={exp.image} alt={exp.title} />
+                </div>
+                <div className={styles.experienceContent}>
+                  <div className={styles.experienceHeader}>
+                    <h3 className={styles.experienceTitle}>
+                      <FaCode style={{ marginRight: '0.5rem', verticalAlign: 'middle' }} />
+                      {exp.title}
+                    </h3>
+                    <p className={styles.experienceSubtitle}>{exp.subtitle}</p>
+                    <p className={styles.experienceYear}>{exp.year}</p>
+                  </div>
+                  <div className={styles.responsibilitiesSection}>
+                    <h4 className={styles.responsibilitiesTitle}>Responsibilities:</h4>
+                    <ul className={styles.responsibilitiesList}>
+                      {exp.responsibilities.map((item, idx) => (
+                        <li key={idx} className={styles.responsibilityItem}>
+                          <FaCheck className={styles.checkIcon} />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className={styles.techSection}>
+                    <h4 className={styles.techTitle}>Tech Stack:</h4>
+                    <div className={styles.techTags}>
+                      {exp.techStack.map((tech, idx) => (
+                        <span key={idx} className={styles.techTag}>{tech}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))
+          )}
         </div>
       </div>
     </motion.section>

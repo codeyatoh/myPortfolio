@@ -1,0 +1,243 @@
+.testimonialsContainer {
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    margin-top: 0;
+    margin-bottom: 2rem !important;
+    background-color: #FCFAF1;
+    min-height: 60vh;
+    font-family: 'Poppins', sans-serif;
+    padding: 3rem 0;
+}
+
+.testimonialsWrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.header h2 {
+    font-size: 2.5rem;
+    color: #343434;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+}
+
+.header p {
+    color: #343434;
+    font-size: 1.1rem;
+    opacity: 0.8;
+    font-family: 'Poppins', sans-serif;
+}
+
+.testimonialWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.navButton {
+    background-color: #D9D9D9;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #343434;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.navButton:hover {
+    background-color: #E6B31E;
+    transform: scale(1.1);
+}
+
+.testimonialCard {
+    background-color: #343434;
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    text-align: center;
+    position: relative;
+    max-width: 800px;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.quoteIcon {
+    position: absolute;
+    top: 1.5rem;
+    left: 2rem;
+    font-size: 2rem;
+    color: #D9D9D9;
+    opacity: 0.3;
+}
+
+.profileImage {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+    border: 3px solid #FCFAF1;
+    overflow: hidden;
+    background-color: #D9D9D9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profileImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.testimonialContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.quote {
+    color: #FCFAF1;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    font-style: italic;
+    font-family: 'Poppins', sans-serif;
+}
+
+.authorInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.authorName {
+    color: #FCFAF1;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.authorPosition {
+    color: #E6B31E;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+}
+
+.dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #D9D9D9;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.activeDot {
+    background-color: #343434;
+    transform: scale(1.2);
+}
+
+.dot:hover {
+    background-color: #E6B31E;
+    transform: scale(1.1);
+}
+
+.mobileArrows {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .testimonialWrapper {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .navButton {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .testimonialCard {
+        padding: 2rem 1.5rem;
+        min-height: 250px;
+    }
+    
+    .quote {
+        font-size: 1.1rem;
+    }
+    
+    .authorName {
+        font-size: 1.2rem;
+    }
+    
+    .authorPosition {
+        font-size: 0.9rem;
+    }
+    
+    .mobileArrows {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-top: 2.5rem;
+        margin-bottom: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .testimonialWrapper {
+        gap: 0.5rem;
+    }
+    
+    .testimonialCard {
+        padding: 1.5rem 1rem;
+        min-height: 200px;
+    }
+    
+    .quote {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .profileImage {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 1rem;
+    }
+    
+    .quoteIcon {
+        font-size: 1.5rem;
+        top: 1rem;
+        left: 1rem;
+    }
+}
