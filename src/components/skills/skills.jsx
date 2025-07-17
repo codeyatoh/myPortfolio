@@ -27,7 +27,7 @@ import {
   SiCloudinary,
   SiJavascript 
 } from 'react-icons/si';
-import styles from './Skills.module.css';
+import styles from './skills.module.css';
 import { motion } from 'framer-motion';
 
 function Skills() {
