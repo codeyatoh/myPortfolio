@@ -10,7 +10,7 @@ import {
   FaYoutube,
   FaDribbble 
 } from 'react-icons/fa';
-import styles from './Contacts.module.css';
+import styles from './contacts.module.css';
 import { motion } from 'framer-motion';
 
 function Contact() {
