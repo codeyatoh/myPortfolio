@@ -298,9 +298,28 @@
     justify-content: center;
     width: 100%;
   }
+  .card,
+  .profileImage,
+  .infoItem,
+  .downloadButton {
+    transition: background 0.2s, color 0.2s;
+  }
+  .card:hover,
+  .profileImage:hover,
+  .infoItem:hover,
+  .downloadButton:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    background-color: #E6B31E !important;
+    color: #343434 !important;
+  }
+  .fadeInUpScale {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
-/* Responsive Design */
 @media (max-width: 1100px) {
   .mainContent {
     flex-direction: column;
@@ -340,6 +359,11 @@
   }
   .title {
     font-size: 1.5rem;
+  }
+  .fadeInUpScale {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
 

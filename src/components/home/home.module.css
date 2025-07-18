@@ -435,11 +435,55 @@
     justify-content: center;
     margin: 0 auto 2rem auto;
   }
+  .socialIcon,
+  .btnPrimary,
+  .btnSecondary,
+  .statTag,
+  .profileImage,
+  .floatingIcon {
+    transition: background 0.2s, color 0.2s;
+    /* Remove transform/scale/box-shadow transitions */
+  }
+  .socialIcon:hover,
+  .btnPrimary:hover,
+  .btnSecondary:hover,
+  .statTag:hover,
+  .profileImage:hover,
+  .floatingIcon:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    background-color: #E6B31E !important;
+    color: #343434 !important;
+  }
+  .fadeInUp,
+  .animateSlideInLeft,
+  .animateSlideInRight,
+  .animateFadeInUp,
+  .animateScaleIn,
+  .animateFloat,
+  .animateRotate,
+  .fadeInUpScale {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 @media (max-width: 600px) {
   .portfolioContainer {
     margin-bottom: 2rem !important;
+  }
+  .fadeInUp,
+  .animateSlideInLeft,
+  .animateSlideInRight,
+  .animateFadeInUp,
+  .animateScaleIn,
+  .animateFloat,
+  .animateRotate,
+  .fadeInUpScale {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
 

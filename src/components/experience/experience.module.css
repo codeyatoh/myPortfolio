@@ -230,8 +230,28 @@
     flex-direction: column;
     gap: 1rem;
   }
+  .navButton,
+  .experienceCard,
+  .dot {
+    transition: none !important;
+  }
+  .navButton:hover,
+  .experienceCard:hover,
+  .dot:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    /* Do not change background or color on mobile */
+  }
+  .fadeInUp,
+  .animateSlideInLeft,
+  .animateSlideInRight,
+  .animateFadeInUp,
+  .animateScaleIn {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
-
 @media (max-width: 480px) {
   .experienceContent {
     padding: 1rem;
@@ -249,5 +269,14 @@
   .experienceCard {
     max-width: 98vw;
     min-width: 0;
+  }
+  .fadeInUp,
+  .animateSlideInLeft,
+  .animateSlideInRight,
+  .animateFadeInUp,
+  .animateScaleIn {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

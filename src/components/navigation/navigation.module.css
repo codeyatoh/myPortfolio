@@ -95,6 +95,20 @@
     justify-content: space-around;
   }
   
+  .navItem,
+  .navIcon {
+    transition: none !important;
+  }
+  .navItem:hover,
+  .navItem.active,
+  .navIcon:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+  .floatingNavLabel {
+    transition: none !important;
+  }
+  
   .navItem {
     min-width: auto;
     padding: 6px 8px;
@@ -123,6 +137,20 @@
 @media (max-width: 480px) {
   .navLabel {
     display: none;
+  }
+  
+  .navItem,
+  .navIcon {
+    transition: none !important;
+  }
+  .navItem:hover,
+  .navItem.active,
+  .navIcon:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+  .floatingNavLabel {
+    transition: none !important;
   }
   
   .navItem {

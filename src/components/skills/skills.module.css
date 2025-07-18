@@ -143,6 +143,15 @@
         padding: 0.5rem 1rem;
         font-size: 0.9rem;
     }
+    .tab,
+    .skillCard {
+        transition: none !important;
+    }
+    .tab:hover,
+    .skillCard:hover {
+        transform: none !important;
+        box-shadow: none !important;
+    }
 }
 
 @media (max-width: 480px) {
@@ -156,5 +165,14 @@
     
     .tab {
         padding: 0.75rem;
+    }
+    .tab,
+    .skillCard {
+        transition: none !important;
+    }
+    .tab:hover,
+    .skillCard:hover {
+        transform: none !important;
+        box-shadow: none !important;
     }
 }
