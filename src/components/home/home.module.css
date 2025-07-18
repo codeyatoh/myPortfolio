@@ -361,6 +361,10 @@
   .portfolioContainer {
     padding: 1rem;
   }
+  .portfolioWrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
   
   .headerSection {
     flex-direction: column;

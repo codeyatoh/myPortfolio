@@ -293,6 +293,13 @@
 }
 
 @media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+  .wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
   .downloadButtonContainer {
     display: flex;
     justify-content: center;
