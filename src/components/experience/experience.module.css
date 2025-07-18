@@ -91,6 +91,9 @@
   min-height: 520px;
   margin: 0 auto;
   width: 100%;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
 }
 
 .experienceCard:hover {
