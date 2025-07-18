@@ -251,6 +251,12 @@
     opacity: 1 !important;
     transform: none !important;
   }
+  .experienceCard {
+    max-width: 370px;
+    width: 100%;
+    margin: 0 auto;
+    min-height: 520px;
+  }
 }
 @media (max-width: 480px) {
   .experienceContent {
@@ -269,6 +275,8 @@
   .experienceCard {
     max-width: 98vw;
     min-width: 0;
+    width: 100%;
+    margin: 0 auto;
     min-height: 520px;
   }
   .fadeInUp,
