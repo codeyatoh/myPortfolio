@@ -107,10 +107,11 @@ function Projects() {
   return (
     <motion.div
       className={styles.projectsContainer}
-      initial={{ x: -100, opacity: 0 }}
-      whileInView={{ x: 0, opacity: 1 }}
+      initial={isMobile ? false : { x: -100, opacity: 0 }}
+      animate={isMobile ? false : { x: 0, opacity: 1 }}
+      whileInView={isMobile ? false : { x: 0, opacity: 1 }}
       viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.7, ease: 'easeOut' }}
+      transition={isMobile ? { duration: 0 } : { duration: 0.7, ease: 'easeOut' }}
     >
       <div className={styles.projectsWrapper}>
         {/* Header */}

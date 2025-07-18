@@ -16,6 +16,16 @@ import profileImg from '../../assets/images/yatoh.dev.jpg';
 import { motion } from 'framer-motion';
 import toast, { Toaster } from 'react-hot-toast';
 
+function useIsMobile(breakpoint = 768) {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= breakpoint);
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= breakpoint);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [breakpoint]);
+  return isMobile;
+}
+
 // Typewriter component for subtitle
 const Typewriter = () => {
   const text = 'Web Developer';
@@ -52,13 +62,15 @@ const Typewriter = () => {
 };
 
 function Home() {
+  const isMobile = useIsMobile();
   return (
     <motion.section
       id="home"
-      initial={{ opacity: 0, x: -80 }}
-      whileInView={{ opacity: 1, x: 0 }}
+      initial={isMobile ? false : { opacity: 0, x: -80 }}
+      animate={isMobile ? false : { opacity: 1, x: 0 }}
+      whileInView={isMobile ? false : { opacity: 1, x: 0 }}
       viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
+      transition={isMobile ? { duration: 0 } : { duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
       className={styles.portfolioContainer}
     >
       <Toaster

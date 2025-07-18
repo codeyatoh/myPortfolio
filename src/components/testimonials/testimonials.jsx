@@ -52,10 +52,11 @@ function Testimonials() {
     <motion.section
       className={styles.testimonialsContainer}
       id="testimonials"
-      initial={{ x: 100, opacity: 0 }}
-      whileInView={{ x: 0, opacity: 1 }}
+      initial={isMobile ? false : { opacity: 0, x: 80 }}
+      animate={isMobile ? false : { opacity: 1, x: 0 }}
+      whileInView={isMobile ? false : { opacity: 1, x: 0 }}
       viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
+      transition={isMobile ? { duration: 0 } : { duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
     >
       <div className={styles.testimonialsWrapper}>
         <div className={styles.header}>

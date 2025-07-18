@@ -5,14 +5,26 @@ import profileImg from '../../assets/images/yatoh.dev-1.jpg';
 import { motion } from 'framer-motion';
 import toast from 'react-hot-toast';
 
+function useIsMobile(breakpoint = 768) {
+  const [isMobile, setIsMobile] = React.useState(window.innerWidth <= breakpoint);
+  React.useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= breakpoint);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [breakpoint]);
+  return isMobile;
+}
+
 function About() {
+  const isMobile = useIsMobile();
   return (
     <motion.section
       id="about"
-      initial={{ opacity: 0, x: 80 }}
-      whileInView={{ opacity: 1, x: 0 }}
+      initial={isMobile ? false : { opacity: 0, x: 80 }}
+      animate={isMobile ? false : { opacity: 1, x: 0 }}
+      whileInView={isMobile ? false : { opacity: 1, x: 0 }}
       viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
+      transition={isMobile ? { duration: 0 } : { duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
       className={styles.container}
     >
       <div className={styles.wrapper}>

@@ -30,7 +30,18 @@ import {
 import styles from './skills.module.css';
 import { motion } from 'framer-motion';
 
+function useIsMobile(breakpoint = 768) {
+  const [isMobile, setIsMobile] = React.useState(window.innerWidth <= breakpoint);
+  React.useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= breakpoint);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [breakpoint]);
+  return isMobile;
+}
+
 function Skills() {
+  const isMobile = useIsMobile();
   const skillCategories = [
     {
       name: 'Frontend',
@@ -85,10 +96,11 @@ function Skills() {
     <motion.section
       className={styles.skillsContainer}
       id="skills"
-      initial={{ x: -100, opacity: 0 }}
-      whileInView={{ x: 0, opacity: 1 }}
+      initial={isMobile ? false : { opacity: 0, x: -80 }}
+      animate={isMobile ? false : { opacity: 1, x: 0 }}
+      whileInView={isMobile ? false : { opacity: 1, x: 0 }}
       viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
+      transition={isMobile ? { duration: 0 } : { duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
     >
       <div className={styles.skillsWrapper}>
         <div className={styles.header}>
