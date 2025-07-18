@@ -265,6 +265,13 @@
     gap: 1.5rem;
     justify-items: center;
   }
+  .experienceSection {
+    padding: 1rem;
+  }
+  .experienceWrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 }
 @media (max-width: 480px) {
   .experienceContent {
