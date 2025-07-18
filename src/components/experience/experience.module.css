@@ -260,6 +260,11 @@
     margin: 0 auto;
     min-height: 520px;
   }
+  .experienceGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    justify-items: center;
+  }
 }
 @media (max-width: 480px) {
   .experienceContent {
