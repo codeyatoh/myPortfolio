@@ -108,7 +108,6 @@ function Projects() {
     <motion.div
       className={styles.projectsContainer}
       initial={isMobile ? false : { x: -100, opacity: 0 }}
-      animate={isMobile ? false : { x: 0, opacity: 1 }}
       whileInView={isMobile ? false : { x: 0, opacity: 1 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={isMobile ? { duration: 0 } : { duration: 0.7, ease: 'easeOut' }}

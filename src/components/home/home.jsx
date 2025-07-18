@@ -67,7 +67,6 @@ function Home() {
     <motion.section
       id="home"
       initial={isMobile ? false : { opacity: 0, x: -80 }}
-      animate={isMobile ? false : { opacity: 1, x: 0 }}
       whileInView={isMobile ? false : { opacity: 1, x: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={isMobile ? { duration: 0 } : { duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
